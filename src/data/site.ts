@@ -4,8 +4,8 @@
 // ---------------------------------------------------------------------------
 
 export const site = {
-  // TODO: your custom domain, including https:// and no trailing slash.
-  url: 'https://example.com',
+  // Your custom domain, including https:// and no trailing slash.
+  url: 'https://nyamieh.com',
 
   name: 'Alexander Dennis',
   // TODO: one line that says what you do.

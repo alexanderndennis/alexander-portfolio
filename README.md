@@ -1,6 +1,6 @@
 # Alexander Dennis — Portfolio
 
-Personal portfolio site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed to GitHub Pages on a custom domain.
+Personal portfolio site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed to GitHub Pages at [nyamieh.com](https://nyamieh.com).
 
 ## Run locally
 
