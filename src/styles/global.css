@@ -1,0 +1,21 @@
+@import 'tailwindcss';
+
+/* Dark mode follows a `dark` class on <html>, set by the theme toggle. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --color-accent-50: oklch(0.97 0.02 250);
+  --color-accent-400: oklch(0.7 0.15 250);
+  --color-accent-500: oklch(0.62 0.18 255);
+  --color-accent-600: oklch(0.54 0.19 258);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
