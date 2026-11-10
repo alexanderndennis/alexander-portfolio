@@ -202,6 +202,7 @@ footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 10px; j
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; min-width: 0 }
 .card .thumb { appearance: none; border: 0; padding: 0; background: var(--chip); cursor: zoom-in; display: block; width: 100% }
 .card img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: 50% 30% }
+.grid.fit-contain .card img { object-fit: contain; background: #fff; padding: 6px }
 .card .ph { aspect-ratio: 4/3; background: var(--band); color: rgba(255,255,255,.18); display: grid; place-items: center }
 .card .ph .star { width: 42%; height: auto; aspect-ratio: 1 }
 .card .meta { padding: 14px 16px; display: grid; gap: 4px }

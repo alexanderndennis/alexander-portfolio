@@ -37,7 +37,7 @@ const sub = (i: (typeof items)[number]) => [i.issuer, fmtDate(i.date)].filter(Bo
       )}
       <span class="count" id="count">{items.length} item{items.length === 1 ? '' : 's'}</span>
     </div>
-    <div class="grid" id="grid">
+    <div class={`grid${g.fit === 'contain' ? ' fit-contain' : ''}`} id="grid">
       {items.length === 0 && (
         <div class="empty"><b>Nothing here yet</b><span>New items will appear here soon.</span></div>
       )}
