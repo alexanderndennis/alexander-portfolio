@@ -229,6 +229,13 @@ footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 10px; j
 .lightbox .pos { font: 500 .82rem var(--f-mono); color: #A8A1AF; margin-left: 8px; white-space: nowrap }
 @media (max-width: 560px) { .lightbox .nav-btn { top: auto; bottom: 18px; transform: none } }
 
+/* Memories photo wall */
+.wall { columns: 4 220px; column-gap: 12px; padding-bottom: 60px }
+.wall .tile { display: block; width: 100%; margin: 0 0 12px; padding: 0; border: 0; border-radius: 10px; overflow: hidden; background: var(--chip); cursor: zoom-in; break-inside: avoid }
+.wall .tile img { display: block; width: 100%; height: auto; transition: transform .3s }
+.wall .tile:hover img { transform: scale(1.03) }
+@media (max-width: 560px) { .wall { columns: 2 140px; column-gap: 8px } .wall .tile { margin-bottom: 8px } }
+
 /* 404 */
 .lost { min-height: 60vh; display: grid; place-items: center; text-align: center; padding-block: 80px }
 .lost .big { font: 800 5rem/1 var(--f-display); color: var(--accent) }

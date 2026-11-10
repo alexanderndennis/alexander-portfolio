@@ -19,6 +19,10 @@ const sub = (i: GalleryItem) => [i.issuer, fmtDate(i.date)].filter(Boolean).join
 /** Award and memory photos ship with a small "-t.jpg" thumbnail beside them. */
 const thumb = (src: string) => (/^\/(awards|memories)\//.test(src) ? src.replace(/\.jpg$/, '-t.jpg') : src);
 const photos = (i: GalleryItem) => (i.image ? [i.image, ...(i.images ?? [])] : []);
+const wall = g.layout === 'wall';
+const tiles = wall ? items.flatMap((i) => photos(i).map((src) => ({ src, cat: i.cat, alt: i.title }))) : [];
+const total = wall ? tiles.length : items.length;
+const unit = wall ? 'photo' : 'item';
 ---
 
 <Base title={`${g.title} · ${site.name}`} description={g.desc} current={g.slug}>
@@ -38,8 +42,17 @@ const photos = (i: GalleryItem) => (i.image ? [i.image, ...(i.images ?? [])] : [
           {cats.map((c) => <button class="filter" aria-pressed="false" data-f={c}>{c}</button>)}
         </>
       )}
-      <span class="count" id="count">{items.length} item{items.length === 1 ? '' : 's'}</span>
+      <span class="count" id="count" data-unit={unit}>{total} {unit}{total === 1 ? '' : 's'}</span>
     </div>
+    {wall ? (
+      <div class="wall" id="grid">
+        {tiles.map((t) => (
+          <button class="tile card" type="button" data-cat={t.cat} data-full={t.src} aria-label="View photo">
+            <img loading="lazy" decoding="async" src={thumb(t.src)} alt={t.alt} />
+          </button>
+        ))}
+      </div>
+    ) : (
     <div class={`grid${g.fit === 'contain' ? ' fit-contain' : ''}`} id="grid">
       {items.length === 0 && (
         <div class="empty"><b>Nothing here yet</b><span>New items will appear here soon.</span></div>
@@ -67,6 +80,7 @@ const photos = (i: GalleryItem) => (i.image ? [i.image, ...(i.images ?? [])] : [
         );
       })}
     </div>
+    )}
   </div>
 
   <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
@@ -89,7 +103,7 @@ const photos = (i: GalleryItem) => (i.image ? [i.image, ...(i.images ?? [])] : [
     document.querySelectorAll('[data-f]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
     let n = 0;
     cards.forEach((c) => { const show = f === 'All' || c.dataset.cat === f; c.hidden = !show; if (show) n++; });
-    count.textContent = `${n} item${n === 1 ? '' : 's'}`;
+    const u = count.dataset.unit; count.textContent = `${n} ${u}${n === 1 ? '' : 's'}`;
   });
 
   const lb = $('#lightbox'), img = $<HTMLImageElement>('#lb-img'), cap = $('#lb-cap'), pos = $('#lb-pos');
@@ -105,6 +119,14 @@ const photos = (i: GalleryItem) => (i.image ? [i.image, ...(i.images ?? [])] : [
   const hide = () => { lb.hidden = true; document.body.style.overflow = ''; opener?.focus(); };
 
   document.getElementById('grid')?.addEventListener('click', (e) => {
+    const tile = (e.target as HTMLElement).closest<HTMLButtonElement>('.tile');
+    if (tile) {
+      const shown = cards.filter((c) => !c.hidden) as HTMLButtonElement[];
+      opener = tile; list = shown.map((c) => c.dataset.full!); title = 'Memory';
+      cap.textContent = ''; prev.hidden = next.hidden = list.length < 2;
+      show(shown.indexOf(tile)); lb.hidden = false; document.body.style.overflow = 'hidden'; close.focus();
+      return;
+    }
     const t = (e.target as HTMLElement).closest<HTMLButtonElement>('.thumb');
     if (!t) return;
     opener = t; list = JSON.parse(t.dataset.photos!); title = t.dataset.cap ?? '';
