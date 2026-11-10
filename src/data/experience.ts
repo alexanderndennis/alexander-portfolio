@@ -7,6 +7,7 @@ export type Role = {
   text?: string;
   /** Filled dot on the timeline. */
   key?: boolean;
+  link?: { label: string; href: string };
   /** Badge next to the title: green "Elected" or gold "Appointed". */
   badge?: 'elected' | 'appointed';
 };
@@ -22,7 +23,7 @@ export const experience: Role[] = [
     when: '2026–27',
     title: 'Assistant Secretary General',
     org: 'Chandigarh University Liberian Students Association (CULSA)',
-    text: 'Elected through CULSA’s Independent Election Commission and recognised with the Democratic Elected Leadership Award.',
+    text: 'Elected through CULSA’s Independent Election Commission and inaugurated at CU’s Liberia Armed Forces Day celebration, receiving the Democratic Elected Leadership Award.',
     key: true,
     badge: 'elected',
   },
@@ -30,9 +31,15 @@ export const experience: Role[] = [
     when: '2026–27',
     title: 'Student Representative, 5th House of Parliament',
     org: 'Association of Liberian Students in India (ALSI)',
-    text: 'Represents Chandigarh University’s Liberian students in the national student parliament.',
+    text: 'Represents Chandigarh University’s Liberian students in the national student parliament. Inaugurated at ALSI’s Liberia Independence Day ceremony, July 2026.',
     key: true,
     badge: 'elected',
+  },
+  {
+    when: 'Current',
+    title: 'Lecturer, Office Productivity',
+    org: 'TEC Liberia Digital Institute',
+    text: 'Teaches practical, job-ready office and digital skills to students in Liberia.',
   },
   {
     when: '2025–26',
@@ -52,7 +59,8 @@ export const experience: Role[] = [
     when: 'Ongoing',
     title: 'Founding Member, Elite Squad FC',
     org: 'International students’ football club',
-    text: 'Helped found a club that brings together players from Zimbabwe, Malawi, Liberia, Tanzania, South Sudan and India. Founded on the day we won the YES Festival 2025 final.',
+    text: 'Founded on the day we won the YES Festival 2025 final. Since then the squad has had players from 11 nations: Zimbabwe, Liberia, Nigeria, Zambia, South Sudan, Tanzania, Malawi, Kenya, South Africa, Cameroon and India. Its core today comes from Zimbabwe, Liberia, Nigeria and Zambia.',
+    link: { label: 'Follow @elite_squad2025 →', href: 'https://www.instagram.com/elite_squad2025/' },
   },
   { when: 'Ongoing', title: 'Influencer, NextGen Creators', org: 'Chandigarh University' },
   { when: 'CU', title: 'Semi-finalist, Student of the Year', org: 'Chandigarh University’s first-ever edition' },

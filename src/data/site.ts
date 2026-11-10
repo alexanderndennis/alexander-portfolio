@@ -81,9 +81,10 @@ export const beyond = [
   },
   {
     eyebrow: 'Community',
-    big: '6 nations, 1 team',
+    big: '11 nations, 1 team',
     title: 'Elite Squad FC',
     text: 'A football family for international students in India, and proof that sport is the fastest way to turn strangers into a network.',
+    link: { label: '@elite_squad2025 →', href: 'https://www.instagram.com/elite_squad2025/' },
   },
 ];
 

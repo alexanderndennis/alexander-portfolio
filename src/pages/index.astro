@@ -132,6 +132,7 @@ import { galleries } from '../data/galleries';
               <h3>{r.title}{r.badge && <span class={`badge ${r.badge}`}><span class="star" aria-hidden="true"></span> {r.badge === 'elected' ? 'Elected' : 'Appointed'}</span>}</h3>
               <p class="org">{r.org}</p>
               {r.text && <p>{r.text}</p>}
+              {r.link && <p><a href={r.link.href} target="_blank" rel="noopener">{r.link.label}</a></p>}
             </div>
           </li>
         ))}
