@@ -35,8 +35,8 @@ export const certifications: Gallery = {
   title: 'Certifications',
   desc: 'Courses and professional certificates from Coursera, LinkedIn Learning and other platforms.',
   teaserEyebrow: 'Coursera · LinkedIn Learning',
-  teaserText: 'Courses completed across software engineering, web development and professional skills.',
-  cats: ['Coursera', 'LinkedIn Learning', 'Other'],
+  teaserText: 'Courses completed across software engineering, web development, design thinking and business.',
+  cats: ['Coursera', 'LinkedIn Learning', 'Professional skills', 'Other'],
   fit: 'contain',
   items: [
     // Coursera
@@ -71,6 +71,21 @@ export const certifications: Gallery = {
     { title: 'React Essential Training', issuer: 'LinkedIn Learning', date: '2026-01-23', cat: 'LinkedIn Learning', image: '/certifications/li-react-essential.jpg' },
     { title: 'Search Techniques for Web Developers', issuer: 'LinkedIn Learning', date: '2026-01-18', cat: 'LinkedIn Learning', image: '/certifications/li-search-techniques.jpg' },
     { title: 'SQL Essential Training', issuer: 'LinkedIn Learning', date: '2026-01-23', cat: 'LinkedIn Learning', image: '/certifications/li-sql-essential.jpg' },
+    { title: 'Computer Architecture Essentials', issuer: 'LinkedIn Learning', date: '2025-10-29', cat: 'LinkedIn Learning', image: '/certifications/li-computer-architecture-essentials.jpg' },
+    // Professional skills (LinkedIn Learning)
+    { title: 'Agile Foundations', issuer: 'LinkedIn Learning', date: '2024-10-27', cat: 'Professional skills', image: '/certifications/li-agile-foundations.jpg' },
+    { title: 'Agile at Work: Building Your Agile Team', issuer: 'LinkedIn Learning', date: '2024-10-20', cat: 'Professional skills', image: '/certifications/li-agile-at-work.jpg' },
+    { title: 'Rapid Prototyping for Product Design', issuer: 'LinkedIn Learning', date: '2024-10-26', cat: 'Professional skills', image: '/certifications/li-rapid-prototyping.jpg' },
+    { title: 'Miro for UX: Brainstorming and Collaboration', issuer: 'LinkedIn Learning', date: '2024-10-26', cat: 'Professional skills', image: '/certifications/li-miro-ux.jpg' },
+    { title: 'Design Thinking: Understanding the Process', issuer: 'LinkedIn Learning', date: '2024-10-26', cat: 'Professional skills', image: '/certifications/li-design-thinking-understanding.jpg' },
+    { title: 'Design Thinking: Implementing the Process', issuer: 'LinkedIn Learning', date: '2024-10-28', cat: 'Professional skills', image: '/certifications/li-design-thinking-implementing.jpg' },
+    { title: 'Learning Design Thinking: Lead Change in Your Organization', issuer: 'LinkedIn Learning', date: '2024-10-28', cat: 'Professional skills', image: '/certifications/li-design-thinking-lead-change.jpg' },
+    { title: 'Creating a Business Plan', issuer: 'LinkedIn Learning', date: '2025-02-03', cat: 'Professional skills', image: '/certifications/li-creating-business-plan.jpg' },
+    { title: 'Consulting Foundations', issuer: 'LinkedIn Learning', date: '2025-02-03', cat: 'Professional skills', image: '/certifications/li-consulting-foundations.jpg' },
+    { title: 'Understanding Intellectual Property', issuer: 'LinkedIn Learning', date: '2025-02-03', cat: 'Professional skills', image: '/certifications/li-understanding-ip.jpg' },
+    { title: 'Leading with Innovation', issuer: 'LinkedIn Learning', date: '2025-02-03', cat: 'Professional skills', image: '/certifications/li-leading-with-innovation.jpg' },
+    { title: 'Technical Writing: Quick Start Guides', issuer: 'LinkedIn Learning', date: '2025-02-01', cat: 'Professional skills', image: '/certifications/li-technical-writing.jpg' },
+    { title: 'Business Writing Principles', issuer: 'LinkedIn Learning', date: '2025-02-02', cat: 'Professional skills', image: '/certifications/li-business-writing.jpg' },
   ],
 };
 
