@@ -139,7 +139,9 @@ blockquote.credo cite { display: block; margin-top: 10px; font: 400 .84rem var(-
 .timeline h3 { margin: 0; font: 700 1.12rem var(--f-display) }
 .timeline .org { color: var(--muted); font-size: .92rem }
 .timeline p:not(.org) { margin-top: 6px; font-size: .96rem; max-width: 40em }
-.elected { display: inline-flex; align-items: center; gap: 6px; font: 500 .7rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; color: var(--sash); margin-left: 6px; vertical-align: 2px }
+.badge { display: inline-flex; align-items: center; gap: 6px; font: 500 .7rem var(--f-mono); letter-spacing: .08em; text-transform: uppercase; margin-left: 6px; vertical-align: 2px; white-space: nowrap }
+.badge.elected { color: var(--sash) }
+.badge.appointed { color: var(--gold) }
 
 /* Beyond code */
 .trio { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px }

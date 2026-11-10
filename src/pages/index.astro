@@ -121,7 +121,7 @@ import { galleries } from '../data/galleries';
             <span class="when">{r.when}</span>
             <span class="dot" aria-hidden="true"></span>
             <div>
-              <h3>{r.title}{r.elected && <span class="elected"><span class="star" aria-hidden="true"></span> Elected</span>}</h3>
+              <h3>{r.title}{r.badge && <span class={`badge ${r.badge}`}><span class="star" aria-hidden="true"></span> {r.badge === 'elected' ? 'Elected' : 'Appointed'}</span>}</h3>
               <p class="org">{r.org}</p>
               {r.text && <p>{r.text}</p>}
             </div>

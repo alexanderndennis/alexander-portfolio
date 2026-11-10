@@ -7,8 +7,8 @@ export type Role = {
   text?: string;
   /** Filled dot on the timeline. */
   key?: boolean;
-  /** Shows the green "Elected" badge. */
-  elected?: boolean;
+  /** Badge next to the title: green "Elected" or gold "Appointed". */
+  badge?: 'elected' | 'appointed';
 };
 
 export const leadership = {
@@ -24,7 +24,7 @@ export const experience: Role[] = [
     org: 'Chandigarh University Liberian Students Association (CULSA)',
     text: 'Elected through CULSA’s Independent Election Commission and recognised with the Democratic Elected Leadership Award.',
     key: true,
-    elected: true,
+    badge: 'elected',
   },
   {
     when: '2026–27',
@@ -32,18 +32,21 @@ export const experience: Role[] = [
     org: 'Association of Liberian Students in India (ALSI)',
     text: 'Represents Chandigarh University’s Liberian students in the national student parliament.',
     key: true,
+    badge: 'elected',
   },
   {
     when: '2025–26',
     title: 'Media & Communication Officer, Cabinet',
     org: 'CULSA',
     text: 'Ran the association’s communications, coverage and public voice.',
+    badge: 'appointed',
   },
   {
     when: '2024–25',
     title: 'First International Students Coordinator',
     org: 'Academic Unit 5 (AU-5), Chandigarh University',
     text: 'The first person to hold the role, appointed in my first year at CU.',
+    badge: 'appointed',
   },
   {
     when: 'Ongoing',
@@ -60,7 +63,7 @@ export const experience: Role[] = [
   },
   {
     when: 'Grades 5–11',
-    title: 'Class President, seven consecutive years',
+    title: 'Class President & Class Topper, seven consecutive years',
     org: 'Sister Shirley Kolmer Memorial Catholic School',
   },
 ];
@@ -74,7 +77,6 @@ export const education: School[] = [
     detail: 'B.E. Computer Science & Engineering (General), 3rd year · Mohali, Punjab',
     ranks: [
       '#1 private university in India, QS Asia 2027 (4th year running)',
-      '#104 in Asia',
       'Top 20 in India, NIRF 2025',
     ],
   },
@@ -83,7 +85,7 @@ export const education: School[] = [
     school: 'Sister Shirley Kolmer Memorial Catholic School',
     years: 'Grade 4 – 2023',
     detail:
-      'High school diploma · Bardnersville Estate, Monrovia · Class President (grades 5–11), Vice President of Class Berenike',
+      'High school diploma · Bardnersville Estate, Monrovia · Class President and class topper (grades 5–11), Vice President of Class Berenike',
   },
   { school: 'St. Mary’s Catholic School', years: 'K – Grade 3', detail: 'Monrovia, Liberia' },
 ];

@@ -35,7 +35,7 @@ export const site = {
     { value: '2', label: 'Avenor OS products: Church OS live, School OS in build' },
     { value: '6', label: 'student leadership roles since 2024' },
     { value: '1M+', label: 'views on @indian_cowboy__' },
-    { value: '#104', label: 'in Asia: Chandigarh University, QS Asia 2027' },
+    { value: 'No. 1', label: 'private university in India: Chandigarh University, QS Asia 2027' },
   ],
 
   github: 'https://github.com/alexanderndennis',
@@ -48,7 +48,7 @@ export const story = {
   places: 'Gardnersville · Congo Town · Kharar',
   /** HTML paragraphs */
   paragraphs: [
-    'I grew up in Gardnersville, Monrovia, in a house where problems were taken apart and solved. My father, <strong>Joseph B. Dennis</strong>, is a mechanical engineer and professor at the University of Liberia, where he teaches thermodynamics and fluid mechanics. Watching him work taught me that engineering is a way of serving people, not just a subject.',
+    'I grew up in Gardnersville, Kebbah Community, Monrovia, in a house where problems were taken apart and solved. My father, <strong>Joseph B. Dennis</strong>, is a mechanical engineer and professor at the University of Liberia, where he teaches thermodynamics and fluid mechanics. Watching him work taught me that engineering is a way of serving people, not just a subject.',
     'After high school I spent almost two years studying Network Engineering at Blue Crest University in Congo Town, which gave me a grounding in how systems talk to each other. I then moved to India for my bachelor’s in Computer Science &amp; Engineering at <strong>Chandigarh University</strong>, where I found my focus: full-stack development.',
     'Years of serving in church leadership and media teams showed me how much community organisations struggle with records, finances and communication. That is the problem I set out to solve with <strong>Avenor OS</strong>. Outside the code, I lead student bodies, play football and basketball, and make content that brings Liberian and Indian culture together.',
   ],
