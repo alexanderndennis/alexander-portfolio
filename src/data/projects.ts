@@ -56,7 +56,11 @@ export const flagship: Flagship = {
   ],
 };
 
-export type SideProject = Product & { diagramLabel?: string; diagram?: string };
+export type SideProject = Product & {
+  diagramLabel?: string;
+  diagram?: string;
+  photo?: { src: string; alt: string; caption?: string };
+};
 
 export const sideProjects: SideProject[] = [
   {
@@ -81,5 +85,19 @@ export const sideProjects: SideProject[] = [
 
 order_status: pending → accepted → preparing
               → ready → completed | cancelled`,
+  },
+  {
+    name: 'Automatic Door System',
+    status: 'paused',
+    statusLabel: 'Team project · hardware',
+    intro:
+      'A sensor-triggered automatic door prototype built as a team of four at the University Institute of Engineering.',
+    points: [
+      'Detects an approaching person and opens the door without contact.',
+      'Hands-on work across <b>sensors, wiring and a working physical model</b>, beyond pure software.',
+      'Built with classmates Kartik, Krish and Gautam.',
+    ],
+    stack: ['Sensors', 'Electronics', 'Prototyping'],
+    photo: { src: '/memories/door-system.jpg', alt: 'The Automatic Door System prototype model', caption: 'The working prototype.' },
   },
 ];

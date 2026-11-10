@@ -123,6 +123,9 @@ blockquote.credo cite { display: block; margin-top: 10px; font: 400 .84rem var(-
 .links { display: flex; flex-wrap: wrap; gap: 14px; font-weight: 600; font-size: .92rem }
 .links .note { color: var(--muted); font-weight: 500 }
 .side-project { margin-top: 24px; display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1.3fr); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden }
+.side-photo { margin: 0; display: grid; gap: 8px }
+.side-photo img { width: 100%; height: auto; max-height: 420px; object-fit: cover; border-radius: 10px }
+.side-photo figcaption { font-size: .86rem; color: var(--muted) }
 .erd { font: 400 .78rem/1.55 var(--f-mono); color: var(--muted); background: var(--chip); border-radius: 10px; padding: 14px 16px; overflow-x: auto; white-space: pre; margin: 0 }
 .skills { margin-top: 40px; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 24px }
 .skills h3 { margin: 0 0 10px; font: 500 .74rem var(--f-mono); letter-spacing: .14em; text-transform: uppercase; color: var(--muted) }
@@ -164,7 +167,7 @@ blockquote.credo cite { display: block; margin-top: 10px; font: 400 .84rem var(-
 .rank span { font: 500 .74rem var(--f-mono); background: var(--chip); color: var(--ink); padding: 4px 9px; border-radius: 6px }
 
 /* Gallery teasers */
-.teasers { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px }
+.teasers { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px }
 .teaser { color: inherit; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 26px; display: flex; flex-direction: column; gap: 10px; transition: border-color .2s, transform .2s }
 .teaser:hover { border-color: var(--accent); transform: translateY(-2px) }
 .teaser h3 { font-size: 1.4rem }
@@ -200,7 +203,7 @@ footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 10px; j
 .count { margin-left: auto; font: 500 .82rem var(--f-mono); color: var(--muted) }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 18px; padding-bottom: 60px }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; display: flex; flex-direction: column; min-width: 0 }
-.card .thumb { appearance: none; border: 0; padding: 0; background: var(--chip); cursor: zoom-in; display: block; width: 100% }
+.card .thumb { position: relative; appearance: none; border: 0; padding: 0; background: var(--chip); cursor: zoom-in; display: block; width: 100% }
 .card img { display: block; width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: 50% 30% }
 .grid.fit-contain .card img { object-fit: contain; background: #fff; padding: 6px }
 .card .ph { aspect-ratio: 4/3; background: var(--band); color: rgba(255,255,255,.18); display: grid; place-items: center }
@@ -217,6 +220,14 @@ footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 10px; j
 .lightbox img { max-height: 78vh; width: auto; border-radius: 8px; background: #fff }
 .lightbox figcaption { color: #F1EEF3; text-align: center; font-size: .95rem }
 .lightbox .x { position: absolute; top: 14px; right: 16px; appearance: none; border: 1px solid rgba(255,255,255,.4); background: none; color: #fff; font: 600 .9rem var(--f-body); padding: 7px 14px; border-radius: 999px; cursor: pointer }
+
+.card .pcount { position: absolute; right: 10px; bottom: 10px; background: rgba(10,8,12,.72); color: #fff; font: 500 .74rem var(--f-mono); padding: 4px 9px; border-radius: 999px }
+.card .tagcat { font: 500 .68rem var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--accent) }
+.lightbox .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); appearance: none; border: 1px solid rgba(255,255,255,.35); background: rgba(10,8,12,.5); color: #fff; width: 46px; height: 46px; border-radius: 50%; font-size: 1.8rem; line-height: 1; cursor: pointer; z-index: 2 }
+.lightbox .nav-btn:hover { border-color: #fff }
+.lightbox .prev { left: 14px } .lightbox .next { right: 14px }
+.lightbox .pos { font: 500 .82rem var(--f-mono); color: #A8A1AF; margin-left: 8px; white-space: nowrap }
+@media (max-width: 560px) { .lightbox .nav-btn { top: auto; bottom: 18px; transform: none } }
 
 /* 404 */
 .lost { min-height: 60vh; display: grid; place-items: center; text-align: center; padding-block: 80px }

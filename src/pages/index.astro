@@ -98,6 +98,14 @@ import { galleries } from '../data/galleries';
               <pre class="erd">{p.diagram}</pre>
             </div>
           )}
+          {p.photo && (
+            <div class="product">
+              <figure class="side-photo">
+                <img src={p.photo.src} alt={p.photo.alt} loading="lazy" decoding="async" />
+                {p.photo.caption && <figcaption>{p.photo.caption}</figcaption>}
+              </figure>
+            </div>
+          )}
         </div>
       ))}
 
@@ -180,7 +188,7 @@ import { galleries } from '../data/galleries';
     <div class="wrap">
       <div class="ch-head">
         <p class="eyebrow">Proof of work</p>
-        <div><h2 id="h-proof">Certificates and honours</h2><p>Every course, certificate and award, kept in one place.</p></div>
+        <div><h2 id="h-proof">Certificates, honours and memories</h2><p>Every course, award and moment worth remembering, kept in one place.</p></div>
       </div>
       <div class="teasers">
         {galleries.map((g) => (

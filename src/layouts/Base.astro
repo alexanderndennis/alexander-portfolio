@@ -6,7 +6,7 @@ interface Props {
   title?: string;
   description?: string;
   /** Which nav item is the current page. */
-  current?: 'home' | 'certifications' | 'awards';
+  current?: 'home' | 'certifications' | 'awards' | 'memories';
 }
 
 const { title = site.title, description = site.description, current = 'home' } = Astro.props;
@@ -21,6 +21,7 @@ const nav = [
   { href: '/#roots', label: 'Roots' },
   { href: '/certifications/', label: 'Certifications', page: 'certifications' },
   { href: '/awards/', label: 'Awards', page: 'awards' },
+  { href: '/memories/', label: 'Memories', page: 'memories' },
   { href: '/#contact', label: 'Contact' },
 ];
 const year = new Date().getFullYear();

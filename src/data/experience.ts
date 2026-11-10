@@ -52,7 +52,7 @@ export const experience: Role[] = [
     when: 'Ongoing',
     title: 'Founding Member, Elite Squad FC',
     org: 'International students’ football club',
-    text: 'Helped found a club that brings together players from Zimbabwe, Malawi, Liberia, Tanzania, South Sudan and India.',
+    text: 'Helped found a club that brings together players from Zimbabwe, Malawi, Liberia, Tanzania, South Sudan and India. Founded on the day we won the YES Festival 2025 final.',
   },
   { when: 'Ongoing', title: 'Influencer, NextGen Creators', org: 'Chandigarh University' },
   { when: 'CU', title: 'Semi-finalist, Student of the Year', org: 'Chandigarh University’s first-ever edition' },

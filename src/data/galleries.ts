@@ -1,8 +1,9 @@
-// Certifications and Awards galleries — each has its own page.
+// Certifications, Awards and Memories galleries — each has its own page.
 //
 // To add an item:
-//   1. Put the image in public/certifications/ or public/awards/
-//      (JPG/PNG/WebP, ideally under ~500 KB and no wider than 1800px).
+//   1. Put the image in public/certifications/, public/awards/ or public/memories/
+//      (JPG, ideally under ~300 KB and no wider than 1200px). For awards and
+//      memories also add a small "-t.jpg" thumbnail next to it (~520px).
 //   2. Add an entry below. `image` is optional — items without one show a
 //      maroon star placeholder. `date` is "YYYY-MM" (or "YYYY"); newest first.
 //   3. `cat` must be one of the gallery's `cats`.
@@ -13,11 +14,13 @@ export type GalleryItem = {
   date?: string;
   cat: string;
   image?: string;
+  /** Extra photos shown in the slideshow after `image` (albums). */
+  images?: string[];
   note?: string;
 };
 
 export type Gallery = {
-  slug: 'certifications' | 'awards';
+  slug: 'certifications' | 'awards' | 'memories';
   eyebrow: string;
   title: string;
   desc: string;
@@ -26,6 +29,8 @@ export type Gallery = {
   cats: string[];
   /** 'contain' shows the whole image (landscape certificates); default crops to fill. */
   fit?: 'cover' | 'contain';
+  /** 'manual' keeps the order written below; default sorts newest first. */
+  order?: 'date' | 'manual';
   items: GalleryItem[];
 };
 
@@ -89,21 +94,91 @@ export const certifications: Gallery = {
   ],
 };
 
+const A = (n: string) => `/awards/${n}.jpg`;
+const M = (n: string) => `/memories/${n}.jpg`;
+
 export const awards: Gallery = {
   slug: 'awards',
   eyebrow: 'Honours',
   title: 'Awards & achievements',
-  desc: 'Leadership, sport and campus recognition, with the certificates and trophies behind them.',
+  desc: 'Leadership, sport and campus recognition, plus the times Chandigarh University featured my work.',
   teaserEyebrow: 'Leadership · Sport · Campus',
   teaserText: 'Election certificates, leadership awards, tournament honours and campus recognition.',
-  cats: ['Leadership', 'Sport', 'Campus', 'Other'],
+  cats: ['Leadership', 'Sport', 'Campus', 'Featured'],
+  order: 'manual',
   items: [
+    // Leadership
+    {
+      title: 'Certificate of Election: Student Representative, Chandigarh University',
+      issuer: 'ALSI Independent Election Commission',
+      date: '2026-06',
+      cat: 'Leadership',
+      image: A('alsi-certificate'),
+      note: 'Declared winner of the ALSI Election 2026 with the highest number of valid votes.',
+    },
     {
       title: 'Democratic Elected Leadership Award & Certificate of Election',
       issuer: 'CULSA Independent Election Commission',
+      date: '2026',
       cat: 'Leadership',
       image: '/images/alexander.jpg',
       note: 'Elected Assistant Secretary General, 2026–27.',
+    },
+    // Campus
+    {
+      title: 'Semi-finalist, Student of the Year 2025',
+      issuer: 'Chandigarh University · Department of Art & Cultural Affairs',
+      date: '2025-04',
+      cat: 'Campus',
+      image: A('soty-talent'),
+      images: [A('soty-talent-stage'), A('soty-social'), A('soty-donation'), A('soty-donation-post'), A('soty-donation-board'),
+        A('soty-strength-arm'), A('soty-strength'), A('soty-strength-group'), A('soty-treasure'), A('soty-poster')],
+      note: 'First-ever edition. Rounds: Social Responsibility (Feb 2025), Donation Drive, Talent, Strength (Apr 2025) and Treasure Hunt.',
+    },
+    {
+      title: 'Third Prize, Innovation Fair, 57th Engineers’ Day 2024',
+      issuer: 'University Institute of Engineering (AU-5), Chandigarh University',
+      date: '2024-09',
+      cat: 'Campus',
+      image: A('innovation-certificate'),
+      images: [A('innovation-trophy-uie'), A('innovation-holding'), A('innovation-trophy-full'), A('innovation-selfie'),
+        A('innovation-trophy'), A('innovation-winners')],
+      note: '14 September 2024, Lab 605, Block C3.',
+    },
+    // Sport
+    {
+      title: 'Champions & Man of the Match (Final), YES Festival Football Championship',
+      issuer: 'Youth Empowered Sports · Quest Christian Fellowship',
+      date: '2025',
+      cat: 'Sport',
+      image: A('yes-mom'),
+      images: [A('yes-trophy'), A('yes-podium'), A('yes-presentation'), A('yes-presentation-2'), A('yes-team'), A('yes-teammate'), A('yes-teammate-2')],
+      note: 'Won the final with CUCF FC and was named Man of the Match. The same day, Elite Squad FC was founded: the birth of a great team.',
+    },
+    {
+      title: '1st Runner-Up, Basketball (Men), International Students Sports Meet',
+      issuer: 'Office of International Affairs, Chandigarh University',
+      date: '2025-04',
+      cat: 'Sport',
+      image: A('issm-portrait'),
+      images: [A('issm-stage'), A('issm-presentation'), A('issm-team'), A('issm-plaque'), A('issm-medal'), A('trophy-shelf')],
+      note: '15–26 April 2025.',
+    },
+    {
+      title: 'Champions, AASI-Punjab Christmas Tournament',
+      issuer: 'AASI-Punjab · Kharar Stadium',
+      date: '2025-12',
+      cat: 'Sport',
+      image: A('aasi-champions'),
+      note: 'Won with CUCF Fellowship in a tournament for Christian fellowships.',
+    },
+    {
+      title: 'Champions, Unity Football Cup 2026 “Kick Free” Season 3',
+      issuer: 'Life Sports India',
+      date: '2026-01',
+      cat: 'Sport',
+      image: A('unity-champions'),
+      images: [A('unity-team'), A('unity-lineup'), A('unity-match'), A('unity-match-2'), A('unity-pitch')],
     },
     {
       title: 'Best Player (MVP) & Top Goal Scorer',
@@ -113,11 +188,129 @@ export const awards: Gallery = {
       note: 'Won a TVS Platinum motorcycle as the prize.',
     },
     {
-      title: 'Semi-finalist, Student of the Year',
-      issuer: 'Chandigarh University · first-ever edition',
-      cat: 'Campus',
+      title: 'Highest Rebounds Award, 2021 Boima Kiawu Youth Basketball Tournament',
+      issuer: 'Mama Jama Ultimate Sports · Area B court, Bardnersville Estate',
+      date: '2021',
+      cat: 'Sport',
+      image: A('mamajama-squad'),
+      images: [A('mamajama-courtside')],
+    },
+    // Featured by Chandigarh University
+    {
+      title: 'Face of the CU admissions campaign 2025–26',
+      issuer: 'Chandigarh University',
+      date: '2025',
+      cat: 'Featured',
+      image: A('featured-admissions'),
+      note: '“Join Our Vibrant Student Community.”',
+    },
+    {
+      title: '“Where Diversity Meets Excellence” campaign',
+      issuer: 'Chandigarh University on Instagram',
+      cat: 'Featured',
+      image: A('featured-diversity'),
+      images: [A('featured-diversity-2')],
+    },
+    {
+      title: '“International Talent, Indian Melody!”: Bollywood cover',
+      issuer: 'Chandigarh University on Instagram',
+      cat: 'Featured',
+      image: A('featured-bollywood'),
+      note: 'A Bollywood cover by an international student that travelled across CU’s accounts.',
+    },
+    {
+      title: 'Representing Liberia at Folk Clock 3.0',
+      issuer: 'Chandigarh University & DACA on Instagram',
+      cat: 'Featured',
+      image: A('featured-folkclock'),
+      note: 'International Dance and Music Festival reel.',
+    },
+    {
+      title: 'International Students Sports Competition',
+      issuer: 'Office of International Affairs, Chandigarh University',
+      date: '2025-04',
+      cat: 'Featured',
+      image: A('issm-post'),
     },
   ],
 };
 
-export const galleries = [certifications, awards];
+export const memories: Gallery = {
+  slug: 'memories',
+  eyebrow: 'Moments',
+  title: 'Memories',
+  desc: 'Campus life, community, faith, service and the roots that shaped me, from Monrovia to Punjab.',
+  teaserEyebrow: 'Campus · Community · Faith · Roots',
+  teaserText: 'Albums from Chandigarh University, the Liberian community in India, church and home.',
+  cats: ['Campus', 'Community', 'Faith', 'Service', 'Sport', 'Roots'],
+  fit: 'cover',
+  order: 'manual',
+  items: [
+    // Campus
+    { title: 'First year at CU: FEDE lab', issuer: 'Chandigarh University', date: '2024', cat: 'Campus',
+      image: M('fede-1'), images: [M('fede-2'), M('fede-3'), M('fede-4')], note: 'With friends in the first-year lab.' },
+    { title: 'Lab days at UIE', issuer: 'University Institute of Engineering', cat: 'Campus',
+      image: M('lab-coats'), images: [M('lab-coats-selfie'), M('lab-pc'), M('lab-physics'), M('lab-formals'), M('lab-formals-selfie')] },
+    { title: 'Suited up at CU', issuer: 'Chandigarh University', cat: 'Campus',
+      image: M('campus-mural'), images: [M('campus-mural-2'), M('campus-suit'), M('campus-steps'), M('campus-steps-2'), M('formals-steps'), M('formals-steps-2'), M('campus-classmates')] },
+    { title: 'HackOverflow', issuer: 'Chandigarh University', cat: 'Campus', image: M('hackoverflow') },
+    { title: 'Campus days', issuer: 'Chandigarh University', cat: 'Campus',
+      image: M('campus-lawn'), images: [M('campus-winter'), M('campus-a1'), M('campus-plaza'), M('campus-walk'), M('campus-headphones'),
+        M('campus-friends'), M('campus-auditorium'), M('campus-redcarpet'), M('campus-group'), M('campus-group-2')] },
+    { title: 'Life at CU', issuer: 'Chandigarh University', cat: 'Campus',
+      image: M('cu-highway'), images: [M('cu-road'), M('cu-road-2'), M('cu-bus'), M('cu-bus-selfie')] },
+    { title: 'With faculty', issuer: 'Chandigarh University', cat: 'Campus',
+      image: M('faculty-1'), images: [M('faculty-2'), M('faculty-3'), M('faculty-4'), M('faculty-5'), M('faculty-6')] },
+    // Community
+    { title: 'Liberia’s 178th Independence Day', issuer: 'Chandigarh University', date: '2025-07', cat: 'Community',
+      image: M('liberia-178-cu'), images: [M('liberia-178-stage'), M('liberia-178-portrait'), M('liberia-178-portrait-2'), M('liberia-178-friend')] },
+    { title: 'Folk Clock 3.0: representing Liberia', issuer: 'International Dance & Music Festival, CU', cat: 'Community',
+      image: M('folkclock-delegation'), images: [M('folkclock-portrait'), M('folkclock-parade')] },
+    { title: 'CULSA at Nigeria’s Independence Day celebration', issuer: 'Chandigarh University · DACA', date: '2026-10', cat: 'Community',
+      image: M('culsa-nigeria'), images: [M('culsa-nigeria-2'), M('culsa-nigeria-3')], note: 'CULSA leadership celebrating with the Nigerian community.' },
+    { title: 'Christmas at CU', issuer: 'Chandigarh University', cat: 'Community',
+      image: M('christmas-cu'), images: [M('christmas-cu-steps')] },
+    { title: 'Chhatbir Zoo trip', issuer: 'Zirakpur, Punjab', cat: 'Community',
+      image: M('zoo-1'), images: [M('zoo-2'), M('zoo-tiger'), M('zoo-path')] },
+    { title: 'Evening out at District One', cat: 'Community',
+      image: M('districtone-1'), images: [M('districtone-2'), M('districtone-group')] },
+    { title: 'Celebrating my colleagues’ graduation', cat: 'Community', image: M('colleagues-graduation') },
+    { title: 'Farewell at Delhi airport', cat: 'Community', image: M('farewell-airport'), note: 'Seeing a friend off.' },
+    { title: 'A day out', cat: 'Community', image: M('day-out') },
+    // Service
+    { title: 'Medical Health Camp, Village Sill, Mohali', issuer: 'Academic Unit 5, CSE · Chandigarh University', date: '2025-02', cat: 'Service',
+      image: M('medical-camp'), note: 'Institutional Social Responsibility outreach.' },
+    { title: 'Community outreach session', issuer: 'Chandigarh University', date: '2025-01', cat: 'Service', image: M('outreach') },
+    // Faith
+    { title: 'LICI media team', issuer: 'Life Implication Church International, Kharar', cat: 'Faith',
+      image: M('lici-media'), images: [M('lici-media-2'), M('lici-friends'), M('lici-friend'), M('lici-pastor')] },
+    { title: 'LICI 13th Anniversary', issuer: 'Life Implication Church International', date: '2024', cat: 'Faith',
+      image: M('lici-cross'), images: [M('lici-anniversary'), M('lici-party')] },
+    { title: 'Christmas at LICI', issuer: 'Life Implication Church International', cat: 'Faith',
+      image: M('lici-christmas'), images: [M('lici-christmas-2'), M('lici-christmas-3')] },
+    { title: 'EYCMR Annual Retreat 2023', issuer: 'Episcopal Youth Council, Montserrado Region', date: '2023', cat: 'Faith',
+      image: M('eycmr-1'), images: [M('eycmr-2'), M('eycmr-3')],
+      note: 'Delegate for St Augustine Youth Fellowship at St Augustine Episcopal Church, Kakata, Margibi County. “Let no man despise thy youth” (1 Timothy 4:12).' },
+    { title: 'St Augustine Acolyte Guild', issuer: 'St Augustine Episcopal Church, Gardnersville', cat: 'Faith', image: M('acolyte-guild'),
+      note: 'Acolyte from 2020 to 2024 and guild Vice President in 2023–24.' },
+    // Sport
+    { title: 'Elite Squad FC', issuer: 'International students’ football club', cat: 'Sport',
+      image: M('elite-juggle'), images: [M('elite-28'), M('elite-ball'), M('elite-fulltime'), M('elite-warmup')],
+      note: 'Founded on the day of the YES Festival 2025 final. Friendly: Elite Squad 5–1 Bethel F.C.' },
+    { title: 'Grand Bassa #06', cat: 'Sport', image: M('grandbassa-1'), images: [M('grandbassa-2'), M('grandbassa-3')] },
+    { title: 'Basketball at CU', issuer: 'Chandigarh University', cat: 'Sport',
+      image: M('cu-basketball'), images: [M('cu-basketball-air'), M('cu-basketball-gd'), M('issm-kickoff')] },
+    { title: 'Home court sessions', issuer: 'Liberia', cat: 'Sport', image: M('homecourt-1'), images: [M('homecourt-2')],
+      note: 'Practising with my friend Donald Brown at Chris’s place.' },
+    { title: 'Football back home', issuer: 'Liberia', cat: 'Sport', image: M('football-liberia') },
+    // Roots
+    { title: 'Carrying the flag', cat: 'Roots', image: M('liberian-flag') },
+    { title: 'Blue Crest University', issuer: 'Congo Town, Monrovia', cat: 'Roots', image: M('blue-crest'), note: 'Network Engineering classmates.' },
+    { title: 'High school graduation, Class of 2022–23', issuer: 'Sister Shirley Kolmer Memorial Catholic School', date: '2023', cat: 'Roots',
+      image: M('hs-graduation'), images: [M('hs-graduation-friends')] },
+    { title: 'Holy Martyrs’ Parish', issuer: 'Liberia', cat: 'Roots', image: M('green-outfits') },
+    { title: 'Suited up back home', issuer: 'Liberia', cat: 'Roots', image: M('back-home-suits') },
+  ],
+};
+
+export const galleries = [certifications, awards, memories];
