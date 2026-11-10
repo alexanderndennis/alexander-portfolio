@@ -154,6 +154,9 @@ blockquote.credo cite { display: block; margin-top: 10px; font: 400 .84rem var(-
 .panel p:not(.eyebrow) { color: var(--muted); font-size: .96rem }
 .panel .handle { margin-top: auto; font: 500 .9rem var(--f-mono) }
 
+/* Link under Beyond code */
+.more-link { display: inline-block; margin-top: 24px; font-weight: 600 }
+
 /* Roots */
 .roots { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px }
 .roots .panel ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; font-size: .96rem; color: var(--muted) }
