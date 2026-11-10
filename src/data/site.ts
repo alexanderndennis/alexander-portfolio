@@ -91,7 +91,7 @@ export const faith = {
   /** HTML list items */
   items: [
     '<b>St. Augustine Episcopal Church</b>, Bardnersville Road, Gardnersville: baptised and confirmed member.',
-    '<b>Acolyte Guild</b>, 2018–2024, serving as Vice President under the Rev. Fr. Macdonald B. Freeman, Rector.',
+    '<b>Acolyte Guild</b>: served as an acolyte from 2020 to 2024, and as Vice President of the guild in 2023–24, under the Rev. Fr. Macdonald B. Freeman, Rector.',
     '<b>Secretary General</b>, St. Augustine Youth Fellowship.',
     '<b>Life Implication Church International (LICI)</b>, Kharar, Punjab: media team, under Ps. Charles Jacobs and Mt. Salome Jacobs.',
   ],
