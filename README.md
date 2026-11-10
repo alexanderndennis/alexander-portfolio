@@ -1,6 +1,6 @@
-# Alexander Dennis — Portfolio
+# Alexander N. Dennis — Portfolio
 
-Personal portfolio site built with [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), deployed to GitHub Pages at [nyamieh.com](https://nyamieh.com).
+Personal portfolio site built with [Astro](https://astro.build), deployed to GitHub Pages at [nyamieh.com](https://nyamieh.com).
 
 ## Run locally
 
@@ -15,16 +15,26 @@ npm run preview  # serve the built site
 
 ## Editing content
 
-All content lives in `src/data/`. Search for `TODO` to find every placeholder.
+All content lives in `src/data/`:
 
 | File | What it controls |
 | --- | --- |
-| `src/data/site.ts` | Domain, name, role, tagline, bio, skills, email, social links |
-| `src/data/projects.ts` | Project cards |
-| `src/data/experience.ts` | Work/education timeline |
-| `public/cv.pdf` | Your CV (add this file, or set `cvPath: null` in `site.ts`) |
+| `src/data/site.ts` | Name, hero, facts strip, story, skills, "Beyond code", faith, contact emails and socials |
+| `src/data/projects.ts` | Avenor OS products and side projects |
+| `src/data/experience.ts` | Leadership timeline and education |
+| `src/data/galleries.ts` | Certifications and Awards pages (`/certifications/`, `/awards/`) |
+| `public/images/` | Profile photo and avatar |
+| `public/certifications/`, `public/awards/` | Gallery images |
 | `public/og.png` | Image shown when the link is shared (1200×630) |
-| `public/favicon.svg` | Browser tab icon |
+
+### Adding a certificate or award
+
+1. Drop the image into `public/certifications/` or `public/awards/` (JPG/PNG/WebP, ideally under 500 KB).
+2. Add an entry to `src/data/galleries.ts`, e.g.
+   `{ title: 'Meta Front-End Developer', issuer: 'Coursera', date: '2025-06', cat: 'Coursera', image: '/certifications/meta-front-end.jpg' }`
+3. Commit and push to `main` — the site redeploys automatically.
+
+Items without an `image` show a maroon star placeholder.
 
 ## Deploying with a custom domain
 

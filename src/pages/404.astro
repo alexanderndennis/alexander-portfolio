@@ -2,9 +2,11 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base title="Page not found">
-  <main id="main" class="mx-auto flex min-h-screen max-w-xl flex-col items-center justify-center px-4 text-center">
-    <p class="text-6xl font-bold text-accent-600 dark:text-accent-400">404</p>
-    <h1 class="mt-4 text-2xl font-semibold text-slate-900 dark:text-white">This page doesn't exist.</h1>
-    <a href="/" class="mt-8 rounded-lg bg-accent-600 px-5 py-2.5 font-medium text-white hover:bg-accent-500">Back home</a>
-  </main>
+  <div class="wrap lost">
+    <div>
+      <p class="big"><span class="star" aria-hidden="true"></span> 404</p>
+      <h1>This page doesn&rsquo;t exist.</h1>
+      <a class="btn" href="/">Back to the portfolio</a>
+    </div>
+  </div>
 </Base>

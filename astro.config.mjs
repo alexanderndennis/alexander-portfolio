@@ -1,11 +1,10 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import tailwindcss from '@tailwindcss/vite';
 import { site } from './src/data/site.ts';
 
 export default defineConfig({
   site: site.url,
+  trailingSlash: 'ignore',
   integrations: [sitemap()],
-  vite: { plugins: [tailwindcss()] },
 });

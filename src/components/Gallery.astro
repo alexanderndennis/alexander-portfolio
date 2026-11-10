@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import type { Gallery } from '../data/galleries';
+import { site } from '../data/site';
+
+interface Props { gallery: Gallery }
+const { gallery: g } = Astro.props;
+
+const fmtDate = (d?: string) => {
+  if (!d) return '';
+  const [y, m] = d.split('-');
+  return m
+    ? new Date(Date.UTC(+y, +m - 1, 1)).toLocaleDateString('en-GB', { month: 'short', year: 'numeric', timeZone: 'UTC' })
+    : y;
+};
+const items = [...g.items].sort((a, b) => (b.date ?? '').localeCompare(a.date ?? ''));
+const cats = g.cats.filter((c) => items.some((i) => i.cat === c));
+const sub = (i: (typeof items)[number]) => [i.issuer, fmtDate(i.date)].filter(Boolean).join(' · ');
+---
+
+<Base title={`${g.title} · ${site.name}`} description={g.desc} current={g.slug}>
+  <div class="view-head">
+    <div class="wrap">
+      <a class="back" href="/">&larr; Back to portfolio</a>
+      <p class="eyebrow">{g.eyebrow}</p>
+      <h1>{g.title}</h1>
+      <p>{g.desc}</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="toolbar" id="filters">
+      {items.length > 0 && cats.length > 1 && (
+        <>
+          <button class="filter" aria-pressed="true" data-f="All">All</button>
+          {cats.map((c) => <button class="filter" aria-pressed="false" data-f={c}>{c}</button>)}
+        </>
+      )}
+      <span class="count" id="count">{items.length} item{items.length === 1 ? '' : 's'}</span>
+    </div>
+    <div class="grid" id="grid">
+      {items.length === 0 && (
+        <div class="empty"><b>Nothing here yet</b><span>New items will appear here soon.</span></div>
+      )}
+      {items.map((i) => (
+        <article class="card" data-cat={i.cat}>
+          {i.image ? (
+            <button class="thumb" type="button" data-src={i.image} data-cap={[i.title, sub(i)].filter(Boolean).join(' · ')} aria-label={`View ${i.title}`}>
+              <img loading="lazy" src={i.image} alt={i.title} />
+            </button>
+          ) : (
+            <div class="ph" aria-hidden="true"><span class="star"></span></div>
+          )}
+          <div class="meta">
+            <h3>{i.title}</h3>
+            {sub(i) && <span class="sub">{sub(i)}</span>}
+            {i.note && <p class="note">{i.note}</p>}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="x" id="lb-close" type="button">Close</button>
+    <figure><img id="lb-img" alt="" /><figcaption id="lb-cap"></figcaption></figure>
+  </div>
+</Base>
+
+<script>
+  const $ = <T extends HTMLElement>(s: string) => document.querySelector<T>(s)!;
+  const cards = [...document.querySelectorAll<HTMLElement>('.card')];
+  const count = $('#count');
+
+  document.getElementById('filters')?.addEventListener('click', (e) => {
+    const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-f]');
+    if (!b) return;
+    const f = b.dataset.f;
+    document.querySelectorAll('[data-f]').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    let n = 0;
+    cards.forEach((c) => { const show = f === 'All' || c.dataset.cat === f; c.hidden = !show; if (show) n++; });
+    count.textContent = `${n} item${n === 1 ? '' : 's'}`;
+  });
+
+  const lb = $('#lightbox'), img = $<HTMLImageElement>('#lb-img'), cap = $('#lb-cap'), close = $('#lb-close');
+  let opener: HTMLElement | null = null;
+  const hide = () => { lb.hidden = true; opener?.focus(); };
+  document.getElementById('grid')?.addEventListener('click', (e) => {
+    const t = (e.target as HTMLElement).closest<HTMLButtonElement>('.thumb');
+    if (!t) return;
+    opener = t;
+    img.src = t.dataset.src!; img.alt = t.dataset.cap ?? ''; cap.textContent = t.dataset.cap ?? '';
+    lb.hidden = false; close.focus();
+  });
+  close.addEventListener('click', hide);
+  lb.addEventListener('click', (e) => { if (e.target === lb) hide(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) hide(); });
+</script>
