@@ -24,6 +24,37 @@ const nav = [
   { href: '/#contact', label: 'Contact' },
 ];
 const year = new Date().getFullYear();
+const sameAs = [
+  'https://www.linkedin.com/in/alexander-dennis-256198329',
+  'https://github.com/alexanderndennis',
+  'https://www.instagram.com/indian_cowboy__/',
+];
+const personLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.url}/#person`,
+  name: site.name,
+  alternateName: ['Alexander Dennis', 'Alexander N Dennis', site.nickname],
+  url: site.url,
+  image: new URL(site.portrait.src, site.url).href,
+  description: site.description,
+  jobTitle: 'Full-Stack Engineer',
+  nationality: { '@type': 'Country', name: 'Liberia' },
+  homeLocation: { '@type': 'Place', name: 'Mohali, Punjab, India' },
+  alumniOf: [
+    { '@type': 'CollegeOrUniversity', name: 'Chandigarh University' },
+    { '@type': 'CollegeOrUniversity', name: 'Blue Crest University' },
+  ],
+  founder: { '@type': 'Organization', name: 'Avenor OS', url: 'https://church.avenoros.com' },
+  memberOf: [
+    { '@type': 'Organization', name: 'Chandigarh University Liberian Students Association (CULSA)' },
+    { '@type': 'Organization', name: 'Association of Liberian Students in India (ALSI)' },
+    { '@type': 'SportsTeam', name: 'Elite Squad FC', url: 'https://www.instagram.com/elite_squad2025/' },
+  ],
+  knowsAbout: ['Full-stack development', 'React', 'NestJS', 'PostgreSQL', 'TypeScript', 'Multi-tenant SaaS'],
+  sameAs,
+};
+const siteLd = { '@context': 'https://schema.org', '@type': 'WebSite', name: site.name, url: site.url, author: { '@id': `${site.url}/#person` } };
 ---
 
 <!doctype html>
@@ -44,6 +75,11 @@ const year = new Date().getFullYear();
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="profile:first_name" content="Alexander" />
+    <meta property="profile:last_name" content="Dennis" />
+    <meta name="author" content={site.name} />
+    <script type="application/ld+json" set:html={JSON.stringify(current === 'home' ? [personLd, siteLd] : siteLd)} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

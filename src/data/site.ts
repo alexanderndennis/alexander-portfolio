@@ -8,9 +8,9 @@ export const site = {
 
   name: 'Alexander N. Dennis',
   nickname: 'The Indian Cowboy',
-  title: 'Alexander N. Dennis',
+  title: 'Alexander N. Dennis | Full-Stack Engineer & Founder of Avenor OS',
   description:
-    'Alexander N. Dennis — full-stack engineer, founder of Avenor OS, CSE student at Chandigarh University.',
+    'Alexander N. Dennis is a Liberian full-stack engineer, founder of Avenor OS, Computer Science student at Chandigarh University and elected student leader, also known as The Indian Cowboy.',
 
   origin: 'Monrovia, Liberia → Punjab, India',
   /** HTML */
