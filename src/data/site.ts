@@ -29,6 +29,7 @@ export const site = {
     alt: 'Alexander Dennis in a maroon blazer and green Assistant Secretary General sash, holding a framed certificate of election and a Democratic Elected Leadership Award',
     tagTitle: 'Elected, 2026–27',
     tagText: 'Assistant Secretary General, Chandigarh University Liberian Students Association',
+    tagLink: 'https://culsa.org/',
   },
 
   facts: [

@@ -24,6 +24,7 @@ export const experience: Role[] = [
     title: 'Assistant Secretary General',
     org: 'Chandigarh University Liberian Students Association (CULSA)',
     text: 'Elected through CULSA’s Independent Election Commission and inaugurated at CU’s Liberia Armed Forces Day celebration, receiving the Democratic Elected Leadership Award.',
+    link: { label: 'Visit culsa.org →', href: 'https://culsa.org/' },
     key: true,
     badge: 'elected',
   },

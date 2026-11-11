@@ -22,7 +22,7 @@ import { galleries } from '../data/galleries';
       </div>
       <figure class="portrait">
         <img src={site.portrait.src} alt={site.portrait.alt} width="720" height="960" fetchpriority="high" />
-        <figcaption class="tag"><b>{site.portrait.tagTitle}</b>{site.portrait.tagText}</figcaption>
+        <figcaption class="tag"><b>{site.portrait.tagTitle}</b><a href={site.portrait.tagLink} target="_blank" rel="noopener">{site.portrait.tagText}</a></figcaption>
       </figure>
     </div>
   </section>
