@@ -230,7 +230,7 @@ export const awards: Gallery = {
       date: '2021',
       cat: 'Sport',
       image: A('mamajama-trophy'),
-      images: [A('mamajama-squad'), A('mamajama-courtside')],
+      images: [A('mamajama-trophy-closeup'), A('mamajama-squad'), A('mamajama-courtside')],
     },
     // Featured
     {
