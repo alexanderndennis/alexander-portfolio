@@ -229,8 +229,8 @@ export const awards: Gallery = {
       issuer: 'Mama Jama Ultimate Sports · Area B court, Bardnersville Estate',
       date: '2021',
       cat: 'Sport',
-      image: A('mamajama-squad'),
-      images: [A('mamajama-courtside')],
+      image: A('mamajama-trophy'),
+      images: [A('mamajama-squad'), A('mamajama-courtside')],
     },
     // Featured
     {
