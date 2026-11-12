@@ -46,7 +46,7 @@ export const site = {
 
 export const story = {
   heading: 'An engineer’s son who builds systems people actually use.',
-  places: 'Gardnersville · Congo Town · Kharar',
+  places: 'Bardnersville · Congo Town · Kharar',
   /** HTML paragraphs */
   paragraphs: [
     'I grew up in Bardnersville, Kebbah Community, Monrovia, in a home where critical thinking was encouraged as a way to solve problems. My father, <strong>Joseph B. Dennis</strong>, is a Mechanical Engineer and an Assistant Professor at the College of Engineering, University of Liberia. Watching him work taught me that engineering is a way of life: serving people creatively, innovatively and productively to improve their wellbeing and that of society at large.',
