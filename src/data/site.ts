@@ -49,7 +49,7 @@ export const story = {
   places: 'Gardnersville · Congo Town · Kharar',
   /** HTML paragraphs */
   paragraphs: [
-    'I grew up in Gardnersville, Kebbah Community, Monrovia, in a house where problems were taken apart and solved. My father, <strong>Joseph B. Dennis</strong>, is a mechanical engineer and professor at the University of Liberia, where he teaches thermodynamics and fluid mechanics. Watching him work taught me that engineering is a way of serving people, not just a subject.',
+    'I grew up in Bardnersville, Kebbah Community, Monrovia, in a home where critical thinking was encouraged as a way to solve problems. My father, <strong>Joseph B. Dennis</strong>, is a Mechanical Engineer and an Assistant Professor at the College of Engineering, University of Liberia. Watching him work taught me that engineering is a way of life: serving people creatively, innovatively and productively to improve their wellbeing and that of society at large.',
     'After high school I spent almost two years studying Network Engineering at Blue Crest University in Congo Town, which gave me a grounding in how systems talk to each other. I then moved to India for my bachelor’s in Computer Science &amp; Engineering at <strong>Chandigarh University</strong>, where I found my focus: full-stack development.',
     'Years of serving in church leadership and media teams showed me how much community organisations struggle with records, finances and communication. That is the problem I set out to solve with <strong>Avenor OS</strong>. Outside the code, I lead student bodies, play football and basketball, and make content that brings Liberian and Indian culture together.',
   ],
