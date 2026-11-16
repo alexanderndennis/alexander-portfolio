@@ -290,7 +290,8 @@ export const awards: Gallery = {
       issuer: 'Chandigarh University & DACA on Instagram',
       cat: 'Featured',
       image: A('featured-folkclock'),
-      note: 'International Dance and Music Festival reel.',
+      images: [A('folkclock-certificate')],
+      note: 'International Dance and Music Festival reel, and the certificate received for representing Liberia.',
     },
     {
       title: 'International Students Sports Competition',
