@@ -336,6 +336,7 @@ export const memories: Gallery = {
     { title: 'Representing Liberia at CAB 26, Corporate Advisory Board 2026', cat: 'Community', image: M('cab-portrait') },
     { title: 'The LIBERIA placard at CAB 26', cat: 'Community', image: M('cab-placard') },
     { title: 'Flying the flag at the International Dance & Music Festival', cat: 'Community', image: M('dance-flag') },
+    { title: 'Receiving my certificate for the International Dance & Music Festival', cat: 'Community', image: M('dance-certificate') },
     { title: 'With a senior colleague at his graduation', cat: 'Community', image: M('senior-graduation') },
     { title: 'Celebrating colleagues’ graduation', cat: 'Community', image: M('colleague-graduation-2') },
     { title: 'The Indian Cowboy', cat: 'Community', image: M('cowboy-palms') },
